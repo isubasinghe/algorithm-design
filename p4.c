@@ -14,8 +14,15 @@ int get_first(int a) {
     */
 
    // Faster than the loop, now this is O(1).
+   // Just stating that log10 returns a double, while we write to an int.
+   // this is because we want the closest power of 10 we can divide by.
    int num_div = log10(a);
-   a /= pow(10, num_div);
+   
+    
+   // Note here that since 10^(log10(a)) is just a, but we need it because
+   // the num_div isn't actually log10(a) but log10(a) with the decimial point values chopped off.
+   a /= pow(10, num_div); 
+   
    return a;
 }
 
